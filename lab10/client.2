@@ -1,0 +1,54 @@
+Script started on 2019-03-21 00:49:54-0400
+]0;nikitash@memeMachine: ~/shumeik2/lab10[01;32mnikitash@memeMachine[00m:[01;34m~/shumeik2/lab10[00m$ gdb randclient
+GNU gdb (Ubuntu 8.1-0ubuntu3) 8.1.0.20180409-git
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from randclient...done.
+(gdb) break main
+Breakpoint 1 at 0xc69: file randclient.c, line 24.
+(gdb) run 127.0.0.1
+Starting program: /home/nikitash/shumeik2/lab10/randclient 127.0.0.1
+
+Breakpoint 1, main (argc=2, argv=0x7ffffffee318) at randclient.c:24
+24	    if (argc != 2) {
+(gdb) n
+29	    int soc = connect_to_server(PORT, argv[1]);
+(gdb) 
+connect: Connection refused
+[Inferior 1 (process 1610) exited with code 01]
+(gdb) nrun 127.0.0.1
+Starting program: /home/nikitash/shumeik2/lab10/randclient 127.0.0.1
+
+Breakpoint 1, main (argc=2, argv=0x7ffffffee318) at randclient.c:24
+24	    if (argc != 2) {
+(gdb) n
+29	    int soc = connect_to_server(PORT, argv[1]);
+(gdb) 
+31	    write_random_pieces(soc, MESSAGE, TIMES);
+(gdb) 
+33	    close(soc);
+(gdb) 
+34	    return 0;
+(gdb) 
+35	}
+(gdb) quit
+A debugging session is active.
+
+	Inferior 1 [process 1614] will be killed.
+
+Quit anyway? (y or n) y
+]0;nikitash@memeMachine: ~/shumeik2/lab10[01;32mnikitash@memeMachine[00m:[01;34m~/shumeik2/lab10[00m$ ei[Kxit
+exit
+
+Script done on 2019-03-21 01:00:21-0400
